@@ -30,7 +30,7 @@ public class AnswerController extends AbstractController {
 		
 		answerDao.insert(answer);
 		
-		ModelAndView mav = jstlView("redirect:/list.next");
+		ModelAndView mav = jstlView("redirect:/");
 		return mav;
 	}
 }

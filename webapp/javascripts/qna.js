@@ -22,3 +22,21 @@ function writeAnswers(e) {
 	 
 	 request.send(params);
 }
+
+function deleteAnswers(e) {
+	 e.preventDefault();
+	 
+	 var params = "questionId=" + answerForm[0].value + "&writer=" + answerForm[1].value + "&contents=" + answerForm[2].value;
+
+	 var request = new XMLHttpRequest();
+	 request.open("POST", url, true);
+	 request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	 
+	 request.onreadystatechange = function() {
+		 if(request.readyState == 4 && request.status == 200) {
+			 location.reload(true);
+		 }
+	 }
+	 
+	 request.send(params);
+}
