@@ -2,7 +2,10 @@ var formList = document.querySelectorAll('.answerWrite input[type=submit]');
 for ( var j=0 ; j < formList.length ; j++) {
 	formList[j].addEventListener('click', writeAnswers, false);
 }
-
+var deleteList = document.querySelectorAll('.delete-answer');
+for ( var j=0 ; j < deleteList.length ; j++) {
+	 deleteList[j].addEventListener('click', deleteAnswers, false);
+}
 function writeAnswers(e) {
 	 e.preventDefault();
 	 
@@ -25,9 +28,9 @@ function writeAnswers(e) {
 
 function deleteAnswers(e) {
 	 e.preventDefault();
+	 var url = "/deleteanswer.next";
+	 var params = "questionId=" + document.getElementById('questionId').innerHTML + "&answerId=" + document.getElementById('answerId').innerHTML;
 	 
-	 var params = "questionId=" + answerForm[0].value + "&writer=" + answerForm[1].value + "&contents=" + answerForm[2].value;
-
 	 var request = new XMLHttpRequest();
 	 request.open("POST", url, true);
 	 request.setRequestHeader("Content-type","application/x-www-form-urlencoded");

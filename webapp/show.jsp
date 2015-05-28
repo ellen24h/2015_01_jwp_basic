@@ -67,9 +67,11 @@
 	                <div class="about">내용 : </div>
 	                ${answers.contents}
 	            </div>
-	            <form>
-	            	<a href="/api/deleteanswer.next">삭제</a>
-	            </form>
+	    		<span id = "questionId" style="display:none;">${question.questionId}</span>
+	    		<span id = "answerId" style="display:none;">${answers.answerId}</span>
+	    		<div>
+	            	<a href="/deleteanswer.next" class = "delete-answer">삭제</a>
+	            </div>
 	        </div>	  
 	     </c:forEach>  
 	</div>

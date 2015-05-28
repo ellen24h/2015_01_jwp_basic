@@ -21,6 +21,15 @@ public class AnswerDao {
 				answer.getQuestionId());
 		jdbcTemplate.update(sqlforCommentCount, answer.getQuestionId());
 	}
+	
+	public void delete(long answerId, long questionId) {
+		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		String sql = "DELETE FROM answers WHERE answerId = ?";
+		String sqlforCommentCount = "UPDATE questions SET countOfComment = countOfComment - 1 WHERE questionId = ?";
+	
+		jdbcTemplate.update(sql, answerId);
+		jdbcTemplate.update(sqlforCommentCount, questionId);
+	}
 
 	public List<Answer> findAllByQuestionId(long questionId) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
