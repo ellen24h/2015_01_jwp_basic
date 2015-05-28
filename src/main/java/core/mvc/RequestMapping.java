@@ -4,11 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import next.controller.AnswerController;
-import next.controller.DeleteController;
+import next.controller.DeleteAnswerController;
+import next.controller.EditQuestionController;
 import next.controller.ListController;
 import next.controller.MobileController;
-import next.controller.SaveController;
+import next.controller.SaveQuestionController;
 import next.controller.ShowController;
+import next.controller.UpdateController;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,10 +23,12 @@ public class RequestMapping {
 		mappings.put("/list.next", new ListController());
 		mappings.put("/show.next", new ShowController());
 		mappings.put("/form.next", new ForwardController("form.jsp"));
-		mappings.put("/save.next", new SaveController());
+		mappings.put("/save.next", new SaveQuestionController());
 		mappings.put("/api/addanswer.next", new AnswerController());
-		mappings.put("/deleteanswer.next", new DeleteController()); 
+		mappings.put("/deleteanswer.next", new DeleteAnswerController()); 
 		mappings.put("/api/list.next", new MobileController());
+		mappings.put("/updateForm.next", new UpdateController());
+		mappings.put("/editQuestion.next", new EditQuestionController());
 		
 		logger.info("Initialized Request Mapping!");
 	}

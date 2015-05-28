@@ -10,6 +10,15 @@ import core.jdbc.JdbcTemplate;
 import core.jdbc.RowMapper;
 
 public class QuestionDao {
+	public void update(Question question, long questionId) {
+		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		String sql = "UPDATE QUESTIONS SET writer = ?, title = ?, contents =? WHERE questionId = ?";
+		jdbcTemplate.update(sql, 
+				question.getWriter(), 
+				question.getTitle(), 
+				question.getContents(),
+				questionId);
+	}
 
 	public void insert(Question question) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
