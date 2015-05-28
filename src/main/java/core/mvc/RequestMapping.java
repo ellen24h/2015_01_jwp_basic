@@ -5,9 +5,11 @@ import java.util.Map;
 
 import next.controller.AnswerController;
 import next.controller.DeleteAnswerController;
+import next.controller.DeleteQuestionController;
 import next.controller.EditQuestionController;
 import next.controller.ListController;
 import next.controller.MobileController;
+import next.controller.MobileDeleteQuestionController;
 import next.controller.SaveQuestionController;
 import next.controller.ShowController;
 import next.controller.UpdateController;
@@ -29,6 +31,8 @@ public class RequestMapping {
 		mappings.put("/api/list.next", new MobileController());
 		mappings.put("/updateForm.next", new UpdateController());
 		mappings.put("/editQuestion.next", new EditQuestionController());
+		mappings.put("/delete.next", new DeleteQuestionController());
+		mappings.put("/api/delete.next", new MobileDeleteQuestionController());
 		
 		logger.info("Initialized Request Mapping!");
 	}

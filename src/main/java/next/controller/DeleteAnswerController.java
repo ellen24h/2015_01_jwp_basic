@@ -24,7 +24,7 @@ public class DeleteAnswerController extends AbstractController {
 			HttpServletResponse response) throws Exception {
 		logger.debug("good");
 		AnswerDao answerdao = new AnswerDao();
-		
+
 		long questionId = Integer.parseInt(request.getParameter("questionId"));
 		long answerId = Integer.parseInt(request.getParameter("answerId"));
 		
